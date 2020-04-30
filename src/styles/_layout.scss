@@ -6,3 +6,12 @@
   color: $ws-medium-jungle-gray;
   margin-top: 60px;
 }
+form {
+  width: 300px;
+  .q-input, .q-textarea {
+    margin-top: 20px;
+  }
+  .q-field__control {
+    height: 54px;
+  }
+}

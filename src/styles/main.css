@@ -6,6 +6,21 @@
 /* #666666 */
 /* #3b4a59 */
 /* #131921 */
+.q-btn {
+  background: #1083ff;
+  color: #ffffff;
+}
+
+body.body--dark .q-field__control, body.body--dark .q-toggle__inner--truthy {
+  color: #43b574;
+}
+body.body--dark .q-toggle {
+  color: #bec2c4;
+}
+body.body--dark .q-btn {
+  background: #43b574;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -13,6 +28,16 @@
   text-align: center;
   color: #242628;
   margin-top: 60px;
+}
+
+form {
+  width: 300px;
+}
+form .q-input, form .q-textarea {
+  margin-top: 20px;
+}
+form .q-field__control {
+  height: 54px;
 }
 
 /*# sourceMappingURL=main.css.map */

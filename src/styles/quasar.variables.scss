@@ -1,15 +1,17 @@
 // It's highly recommended to change the default colors
 // to match your app's branding.
+@import "_variables.scss";
+$primary   : $ws-primary;
+$secondary : $ws-secondary;
+$accent    : $ws-accent;
 
-$primary   : #027BE3;
-$secondary : #26A69A;
-$accent    : #9C27B0;
+$dark      : $ws-medium-jungle-gray;
+$dark-page : $ws-char-coal;
 
-$dark      : #1D1D1D;
+$positive  : $ws-green;
+$negative  : $ws-coral-red;
+$info      : $ws-blue;
+$warning   : $ws-mikado-yellow;
 
-$positive  : #21BA45;
-$negative  : #C10015;
-$info      : #31CCEC;
-$warning   : #F2C037;
 
 @import '~quasar-variables-styl'

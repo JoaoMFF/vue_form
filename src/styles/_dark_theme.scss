@@ -1,0 +1,11 @@
+body.body--dark {
+  .q-field__control, .q-toggle__inner--truthy {
+    color: $ws-emerald
+  }
+  .q-toggle {
+    color: $ws-light,
+  }
+  .q-btn {
+    background: $ws-emerald;
+  }
+}

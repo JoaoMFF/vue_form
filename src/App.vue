@@ -1,27 +1,50 @@
 <template>
   <div id="app">
-    <h2>sadasd</h2>
-    <div class="q-pa-md">
-      <div class="q-gutter-y-md column" style="max-width: 300px">
+    <div class="q-pa-md doc-container">
+      <div class="column items-center">
+        <div class="col-8">
+          <q-toggle v-model="isDarkTheme" label="Dark Theme"></q-toggle>
+          <q-input
+            dense square outlined :filled="isDarkTheme"
+            class="search" v-model="searchTxt" label="Search user">
+            <template v-slot:append>
+              <q-icon v-if="searchTxt !== ''" name="close" @click="searchTxt = ''" class="cursor-pointer"></q-icon>
+              <q-icon name="search"></q-icon>
+            </template>
+          </q-input>
+        </div>
+        <div class="col">
+          <q-form @submit.prevent="onSubmit" class="q-gutter-md" ref="myForm">
+            <q-input
+              ref="login"
+              square
+              outlined
+              :filled="isDarkTheme"
+              v-model="login"
+              label="Login"
+              lazy-rules
+              :rules="[
+                val => val && val.length || 'Please type something',
+                val => val && !users.find(user => user.name === val) || 'Name already exists'
+              ]"
+            />
 
-        <q-input v-model="text" label="Login"></q-input>
-
-        <q-input bottom-slots v-model="text" label="Search user">
-
-          <template v-slot:append>
-            <q-icon v-if="text !== ''" name="close" @click="text = ''" class="cursor-pointer"></q-icon>
-            <q-icon name="search"></q-icon>
-          </template>
-        </q-input>
-
-        <q-input
-          v-model="emails"
-          label="Emails (comma separated)"
-          type="textarea"
-          outlined
-          autogrow
-        />
-
+            <q-input
+              ref="email"
+              square
+              outlined
+              autogrow
+              :filled="isDarkTheme"
+              v-model="emails"
+              label="Emails (comma separated)"
+              lazy-rules
+              :rules="[ val => val && val.length || 'Please type something']"
+            />
+            <div>
+              <q-btn label="Submit" type="submit"></q-btn>
+            </div>
+          </q-form>
+        </div>
       </div>
     </div>
   </div>
@@ -41,19 +64,43 @@
     },
     data: function () {
       return {
-        text: '',
-        email: '',
+        login: '',
+        searchTxt: '',
         coupon: '',
         phoneNumber: '',
-        emails: [],
-        lightTheme: true,
+        emails: '',
+        users: [],
+        isDarkTheme: false,
         countryList: countryListJson,
       }
     },
-    methods: {}
+    computed: {
+    },
+    methods: {
+      onSubmit() {
+        this.$refs.myForm.validate();
+
+        this.users.push({
+          'name': this.login,
+          'emails': this.formatEmails(),
+        })
+
+        this.resetForm();
+      },
+      resetForm() {
+        this.login = "";
+        this.emails = "";
+
+        this.$refs.myForm.resetValidation();
+      },
+      formatEmails() {
+        return this.emails.replace(' ', '').split(',');
+      },
+    },
+    watch: {
+      isDarkTheme(val) {
+        this.$q.dark.set(val)
+      }
+    }
   }
 </script>
-
-<style>
-
-</style>
