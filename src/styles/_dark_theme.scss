@@ -9,11 +9,11 @@ body.body--dark {
     color: $ws-emerald
   }
 
-  .q-toggle {
+  .q-toggle, .user-cards, h5 {
     color: $ws-light,
   }
 
-  .phoneField {
+  .phone-field {
     span {
       color: $ws-light,
     }
@@ -26,11 +26,13 @@ body.body--dark {
     }
   }
 
-  .q-btn {
-    background: $ws-emerald;
+  .coupon {
+    .q-field__append {
+      background: $ws-emerald;
+    }
   }
 
-  .user-cards, h4 {
-    color: $ws-light,
+  .q-btn {
+    background: $ws-emerald;
   }
 }

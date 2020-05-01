@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import './quasar'
-import "./styles/main.css";
+import "./styles/main.scss";
 
 Vue.config.productionTip = false
 

@@ -17,7 +17,7 @@ form {
     height: 54px;
   }
 
-  .phoneField {
+  .phone-field {
     span, select {
       font-size: 14px;
     }
@@ -37,13 +37,48 @@ form {
       min-width: 60px;
       text-align: right
     }
-    .optionalTag {
+
+    .optional-tag {
       color: $ws-light
     }
   }
+
+  .coupon {
+    .q-field__append {
+      padding: 0;
+      margin-right: -11px;
+      color: $ws-white;
+      background: $ws-primary;
+      cursor: pointer;
+
+      .addCoupon {
+        height: 40px;
+        width: 40px;
+        z-index: 10;
+        text-align: center;
+      }
+    }
+  }
+
+  .coupon--valid {
+    .q-field__control, .hint {
+      color: $ws-emerald
+    }
+  }
+
+  .coupon--invalid {
+    .q-field__control, .hint {
+      color: $ws-accent;
+    }
+  }
+
+  .q-btn {
+    background: $ws-primary;
+    color: $ws-white;
+  }
 }
 
-h4 {
+h5 {
   margin-bottom: 0;
 }
 
