@@ -1,5 +1,7 @@
 # vue_form
 
+Vue form with Vue CLI Plugin integration
+
 ## Project setup
 ```
 npm install
