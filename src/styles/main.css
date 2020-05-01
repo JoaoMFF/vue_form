@@ -11,6 +11,12 @@
   color: #ffffff;
 }
 
+body.body--dark {
+  background: #2b3339;
+}
+body.body--dark .q-field__inner, body.body--dark .user-cards {
+  background: #242628;
+}
 body.body--dark .q-field__control, body.body--dark .q-toggle__inner--truthy {
   color: #43b574;
 }
@@ -20,6 +26,9 @@ body.body--dark .q-toggle {
 body.body--dark .q-btn {
   background: #43b574;
 }
+body.body--dark .user-cards, body.body--dark h4 {
+  color: #bec2c4;
+}
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -27,17 +36,34 @@ body.body--dark .q-btn {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #242628;
-  margin-top: 60px;
 }
 
 form {
-  width: 300px;
+  width: 400px;
+  padding: 20px 10px;
 }
 form .q-input, form .q-textarea {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 form .q-field__control {
   height: 54px;
+}
+
+h4 {
+  margin-bottom: 0;
+}
+
+.user-cards {
+  text-align: left;
+}
+.user-cards .emails {
+  display: inline-flex;
+}
+.user-cards .emails ul {
+  display: inline-block;
+  margin: 0;
+  list-style: none;
+  padding: 0 0 0 10px;
 }
 
 /*# sourceMappingURL=main.css.map */

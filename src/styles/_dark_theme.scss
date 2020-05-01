@@ -1,11 +1,23 @@
 body.body--dark {
+  background: $ws-char-coal;
+
+  .q-field__inner, .user-cards {
+    background: $ws-medium-jungle-gray;
+  }
+
   .q-field__control, .q-toggle__inner--truthy {
     color: $ws-emerald
   }
+
   .q-toggle {
     color: $ws-light,
   }
+
   .q-btn {
     background: $ws-emerald;
+  }
+
+  .user-cards, h4 {
+    color: $ws-light,
   }
 }
