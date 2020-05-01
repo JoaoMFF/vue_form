@@ -23,6 +23,16 @@ body.body--dark .q-field__control, body.body--dark .q-toggle__inner--truthy {
 body.body--dark .q-toggle {
   color: #bec2c4;
 }
+body.body--dark .phoneField span {
+  color: #bec2c4;
+}
+body.body--dark .phoneField select option {
+  color: #bec2c4;
+  background: #242628;
+}
+body.body--dark .phoneField select option:hover {
+  background: #242628;
+}
 body.body--dark .q-btn {
   background: #43b574;
 }
@@ -39,7 +49,6 @@ body.body--dark .user-cards, body.body--dark h4 {
 }
 
 form {
-  width: 400px;
   padding: 20px 10px;
 }
 form .q-input, form .q-textarea {
@@ -47,6 +56,26 @@ form .q-input, form .q-textarea {
 }
 form .q-field__control {
   height: 54px;
+}
+form .phoneField span, form .phoneField select {
+  font-size: 14px;
+}
+form .phoneField select {
+  position: absolute;
+  opacity: 0;
+  z-index: 10;
+  height: 100%;
+  padding-left: 10px;
+  margin-left: -10px;
+  cursor: pointer;
+}
+form .phoneField span {
+  color: #000000;
+  min-width: 60px;
+  text-align: right;
+}
+form .phoneField .optionalTag {
+  color: #bec2c4;
 }
 
 h4 {

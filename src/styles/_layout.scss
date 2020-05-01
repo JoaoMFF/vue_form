@@ -5,14 +5,41 @@
   text-align: center;
   color: $ws-medium-jungle-gray;
 }
+
 form {
-  width: 400px;
   padding: 20px 10px;
+
   .q-input, .q-textarea {
     margin-top: 10px;
   }
+
   .q-field__control {
     height: 54px;
+  }
+
+  .phoneField {
+    span, select {
+      font-size: 14px;
+    }
+
+    select {
+      position: absolute;
+      opacity: 0;
+      z-index: 10;
+      height: 100%;
+      padding-left: 10px;
+      margin-left: -10px;
+      cursor: pointer;
+    }
+
+    span {
+      color: $ws-black;
+      min-width: 60px;
+      text-align: right
+    }
+    .optionalTag {
+      color: $ws-light
+    }
   }
 }
 
@@ -22,8 +49,10 @@ h4 {
 
 .user-cards {
   text-align: left;
+
   .emails {
     display: inline-flex;
+
     ul {
       display: inline-block;
       margin: 0;

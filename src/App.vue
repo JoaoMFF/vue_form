@@ -25,7 +25,7 @@
           <q-card>
             <q-form @submit.prevent="onSubmit" class="q-gutter-md" ref="myForm">
               <q-input
-                ref="login" square outlined
+                square outlined
                 v-model="login" label="Login" lazy-rules
                 :rules="[
                 val => val && val.length || errRequired,
@@ -34,10 +34,29 @@
               />
 
               <q-input
-                ref="email" square outlined autogrow
+                square outlined autogrow
                 v-model="emails" label="Emails (comma separated)" lazy-rules
                 :rules="[ val => val && val.length || errRequired]"
               />
+
+              <q-input
+                square outlined
+                v-model="telNumber" type="tel" class="phoneField"
+                label="Phone number">
+                <template v-slot:append>
+                  <span class="optionalTag">(Optional)</span>
+                </template>
+                <template v-slot:prepend>
+                  <select v-model="selectedTelCode">
+                    <option v-for="(value, key) in countryList" :key="value + '_' + key" :value="value">+{{value}}</option>
+                  </select>
+                  <span>
+                    +{{selectedTelCode}}
+                    <q-icon name="keyboard_arrow_down" />
+                  </span>
+                </template>
+              </q-input>
+
               <div>
                 <q-btn label="Submit" type="submit"></q-btn>
               </div>
@@ -55,6 +74,7 @@
         <q-card v-for="user in users" :key="user.name" class="user-cards">
           <q-card-section>
             <div class="text-h6">Name: <span>{{user.name}}</span></div>
+            <div class="text-h6" v-if="user.telNumber">Phone number: <span>+{{user.telCode}} {{user.telNumber}}</span></div>
             <div class="text-h6 emails">Emails:
               <ul>
                 <li v-for="email in user.emails" :key="user.name + '_' + email">{{email}}</li>
@@ -81,11 +101,12 @@
     },
     data: function () {
       return {
-        login: '',
         searchTxt: '',
-        coupon: '',
-        phoneNumber: '',
+        login: '',
         emails: '',
+        telNumber: '',
+        selectedTelCode: '',
+        coupon: '',
         users: [],
         isDarkTheme: false,
         countryList: countryListJson,
@@ -100,13 +121,17 @@
         this.users.push({
           'name': this.login,
           'emails': this.formatEmails(),
+          'telNumber': this.telNumber,
+          'telCode': this.selectedTelCode,
         })
 
         this.resetForm();
       },
       resetForm() {
-        this.login = "";
-        this.emails = "";
+        this.login = '';
+        this.emails = '';
+        this.telNumber = '';
+        this.selectedTelCode = '';
 
         this.$refs.myForm.resetValidation();
       },
