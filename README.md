@@ -1,6 +1,6 @@
 # vue_form
 
-Vue form with Vue CLI Plugin integration
+Vue form with Vue CLI Quasar Plugin integration
 
 ## Project setup
 ```
